@@ -206,4 +206,4 @@ Your portfolio is set up and ready to showcase your work. Don't forget to:
 
 ---
 
-Built with ❤️ using Next.js 14
+Built with ❤️ using Next.js 15

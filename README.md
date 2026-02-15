@@ -1,6 +1,6 @@
 # Omkar Chaithanya - AI/ML & Full-Stack Portfolio
 
-A cutting-edge portfolio website showcasing AI/ML expertise, full-stack development skills, and research work. Built with Next.js 14, TypeScript, Tailwind CSS, Framer Motion, and React Three Fiber.
+A cutting-edge portfolio website showcasing AI/ML expertise, full-stack development skills, and research work. Built with Next.js 15, TypeScript, Tailwind CSS, Framer Motion, and React Three Fiber.
 
 ## ⚠️ Important Note
 
@@ -38,7 +38,7 @@ For production deployment, consider using:
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 15 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Animation**: Framer Motion
@@ -201,5 +201,5 @@ MIT License - feel free to use this template for your own portfolio!
 
 ---
 
-Built with ❤️ using Next.js 14
+Built with ❤️ using Next.js 15
 
