@@ -1,25 +1,38 @@
 'use client';
 
 import { Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial } from '@react-three/drei';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { useTypedText } from '@/hooks/useTypedText';
 import { usePersona } from '../providers/PersonaProvider';
 
-function AnimatedSphere() {
-  return (
-    <Sphere visible args={[1, 100, 200]} scale={2.5}>
-      <MeshDistortMaterial
-        color="#60a5fa"
-        attach="material"
-        distort={0.5}
-        speed={2}
-        roughness={0}
-      />
-    </Sphere>
-  );
-}
+// Dynamically import Canvas and R3F components to avoid SSR issues
+const Canvas = dynamic(() => import('@react-three/fiber').then(mod => mod.Canvas), {
+  ssr: false,
+});
+
+const AnimatedSphere = dynamic(() => import('@react-three/drei').then(mod => {
+  const { Sphere, MeshDistortMaterial } = mod;
+  return function AnimatedSphereComponent() {
+    return (
+      <Sphere visible args={[1, 100, 200]} scale={2.5}>
+        <MeshDistortMaterial
+          color="#60a5fa"
+          attach="material"
+          distort={0.5}
+          speed={2}
+          roughness={0}
+        />
+      </Sphere>
+    );
+  };
+}), {
+  ssr: false,
+});
+
+const OrbitControls = dynamic(() => import('@react-three/drei').then(mod => mod.OrbitControls), {
+  ssr: false,
+});
 
 const Hero = () => {
   const { persona } = usePersona();
@@ -73,7 +86,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            Hi, I'm{' '}
+            Hi, I&apos;m{' '}
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               Omkar Chaithanya
             </span>

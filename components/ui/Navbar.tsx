@@ -9,16 +9,32 @@ import { Persona } from '@/types';
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { persona, setPersona } = usePersona();
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  if (!mounted) {
+    return (
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent py-4">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between">
+            <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              OC
+            </div>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
   const navLinks = [
     { name: 'About', href: '#about' },

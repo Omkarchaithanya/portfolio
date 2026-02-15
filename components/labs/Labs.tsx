@@ -57,7 +57,7 @@ const VisionLab = () => {
       </div>
 
       <p className="text-foreground/70 mb-4">
-        Real-time computer vision demo. Click "Start Camera" to activate your webcam.
+        Real-time computer vision demo. Click &quot;Start Camera&quot; to activate your webcam.
         This is a stub implementation - in production, this would include object detection,
         face recognition, or other CV features.
       </p>

@@ -48,7 +48,7 @@ const About = () => {
             </h3>
             
             <p className="text-lg text-foreground/80">
-              I'm a multi-faceted engineer with expertise spanning AI/ML, full-stack development, 
+              I&apos;m a multi-faceted engineer with expertise spanning AI/ML, full-stack development, 
               and research. With a strong foundation in computer science and a passion for solving 
               complex problems, I create intelligent systems that bridge the gap between cutting-edge 
               research and practical applications.
@@ -56,7 +56,7 @@ const About = () => {
 
             <p className="text-lg text-foreground/80">
               My journey in technology has been driven by curiosity and a desire to make a meaningful 
-              impact. Whether it's building scalable web applications, training deep learning models, 
+              impact. Whether it&apos;s building scalable web applications, training deep learning models, 
               or publishing research papers, I bring dedication and innovation to every project.
             </p>
 
@@ -80,7 +80,7 @@ const About = () => {
                 href="#contact"
                 className="px-6 py-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors"
               >
-                Let's Connect
+                Let&apos;s Connect
               </a>
               <a
                 href="/resume.pdf"

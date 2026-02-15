@@ -21,7 +21,7 @@ const Contact = () => {
     formState: { errors },
   } = useForm<ContactFormData>();
 
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = async () => {
     setIsSubmitting(true);
     
     try {
@@ -38,14 +38,15 @@ const Contact = () => {
       /*
       import emailjs from '@emailjs/browser';
       
+      const formData = getValues();
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         {
-          from_name: data.name,
-          from_email: data.email,
-          subject: data.subject,
-          message: data.message,
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
@@ -96,10 +97,10 @@ const Contact = () => {
               className="space-y-8"
             >
               <div>
-                <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
+                <h3 className="text-2xl font-bold mb-6">Let&apos;s Connect</h3>
                 <p className="text-foreground/80 mb-6">
-                  I'm always interested in hearing about new projects and opportunities.
-                  Whether you have a question or just want to say hi, I'll do my best to get back to you!
+                  I&apos;m always interested in hearing about new projects and opportunities.
+                  Whether you have a question or just want to say hi, I&apos;ll do my best to get back to you!
                 </p>
               </div>
 

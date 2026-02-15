@@ -9,10 +9,10 @@ const Footer = () => {
     {
       title: 'Sections',
       links: [
-        { name: 'About', href: '#about' },
-        { name: 'Skills', href: '#skills' },
-        { name: 'Projects', href: '#projects' },
-        { name: 'Contact', href: '#contact' },
+        { name: 'About', href: '#about', external: false },
+        { name: 'Skills', href: '#skills', external: false },
+        { name: 'Projects', href: '#projects', external: false },
+        { name: 'Contact', href: '#contact', external: false },
       ],
     },
     {
