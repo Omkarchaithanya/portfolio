@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Navbar from '@/components/ui/Navbar';
-import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
 import Skills from '@/components/sections/Skills';
 import Projects from '@/components/sections/Projects';
@@ -17,7 +16,11 @@ import Footer from '@/components/ui/Footer';
 import HUD from '@/components/ui/HUD';
 import { useKonami } from '@/hooks/useKonami';
 
-// Dynamically import KonamiOverlay to avoid SSR issues with R3F
+// Dynamically import components that use R3F or complex 3D features
+const Hero = dynamic(() => import('@/components/sections/Hero'), {
+  ssr: false,
+});
+
 const KonamiOverlay = dynamic(() => import('@/components/ui/KonamiOverlay'), {
   ssr: false,
 });
@@ -34,7 +37,14 @@ export default function Home() {
     <>
       <Navbar />
       <main id="main-content">
-        <Hero />
+        {mounted && <Hero />}
+        {!mounted && (
+          <section className="relative min-h-screen flex items-center justify-center">
+            <div className="text-center">
+              <div className="animate-pulse text-4xl">Loading...</div>
+            </div>
+          </section>
+        )}
         <About />
         <Skills />
         <Projects />

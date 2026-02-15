@@ -1,36 +1,197 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Omkar Chaithanya - AI/ML & Full-Stack Portfolio
+
+A cutting-edge portfolio website showcasing AI/ML expertise, full-stack development skills, and research work. Built with Next.js 14, TypeScript, Tailwind CSS, Framer Motion, and React Three Fiber.
+
+## Features
+
+### Core Features
+- **🎨 Persona Switcher**: Switch between AI/ML, Full-Stack, and Research personas to dynamically retheme CTAs and content
+- **🌓 Dark/Light Mode**: Fully functional theme toggle with smooth transitions
+- **📱 Fully Responsive**: Mobile-first design that works seamlessly across all devices
+- **♿ Accessibility**: WCAG-compliant with skip links, focus-visible styles, and reduced motion support
+
+### Sections
+- **Hero**: Animated hero section with typed text effect and interactive 3D background using React Three Fiber
+- **About**: Personal introduction with key statistics
+- **Skills**: Interactive radar chart with category filters
+- **Projects**: Scrollytelling spotlight with project showcase
+- **Labs**: Interactive Vision Lab with webcam integration (stub implementation)
+- **Publications**: Research papers and publications
+- **Timeline**: Professional journey visualization
+- **Hackathons**: Competition achievements
+- **Certifications**: Professional certifications
+- **Contact**: Functional contact form with React Hook Form and EmailJS integration (requires configuration)
+
+### Special Features
+- **🎮 Konami Code Easter Egg**: Type the famous Konami code (↑↑↓↓←→←→BA) to reveal an interactive 3D scene
+- **🖥️ HUD Component**: Floating status display showing availability, local time, and quick actions
+- **📊 Skills Radar Chart**: Interactive Chart.js visualization
+- **✨ Smooth Animations**: Powered by Framer Motion
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animation**: Framer Motion
+- **3D Graphics**: React Three Fiber (@react-three/fiber, @react-three/drei)
+- **Forms**: React Hook Form
+- **Charts**: Chart.js with react-chartjs-2
+- **Email**: EmailJS (requires configuration)
+- **UI Feedback**: React Hot Toast
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Omkarchaithanya/portfolio.git
+cd portfolio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install --legacy-peer-deps
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+### Building for Production
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Configuration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### EmailJS Setup (Optional)
 
-## Deploy on Vercel
+To enable the contact form email functionality:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Sign up at [https://www.emailjs.com/](https://www.emailjs.com/)
+2. Create an email service and template
+3. Create a `.env.local` file in the root directory:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```env
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+4. Uncomment the EmailJS integration code in `components/sections/Contact.tsx`
+
+### Analytics Setup (Optional)
+
+The portfolio is ready for analytics integration. Add your tracking IDs to the environment variables:
+
+```env
+NEXT_PUBLIC_GA_ID=your_google_analytics_id
+NEXT_PUBLIC_PLAUSIBLE_DOMAIN=your_domain
+```
+
+### Customization
+
+#### Personal Information
+
+Update the following files with your information:
+
+- `lib/data.ts`: Projects, publications, timeline, hackathons, certifications, skills
+- `public/resume.pdf`: Replace with your resume
+- `public/*.jpg`: Replace placeholder images with your photos
+
+#### Links
+
+Update social media and contact links in:
+- `components/sections/Hero.tsx`
+- `components/ui/Footer.tsx`
+- `components/ui/HUD.tsx`
+- `components/ui/Navbar.tsx`
+
+#### Calendly Link
+
+Update the Calendly link in `components/ui/HUD.tsx`:
+```typescript
+href="https://calendly.com/your-link"
+```
+
+## Deployment
+
+### Vercel (Recommended)
+
+The easiest way to deploy is using [Vercel](https://vercel.com):
+
+1. Push your code to GitHub
+2. Import your repository on Vercel
+3. Configure environment variables (if using EmailJS or analytics)
+4. Deploy!
+
+### Other Platforms
+
+This Next.js app can be deployed to any platform that supports Node.js:
+
+- Netlify
+- Railway
+- DigitalOcean App Platform
+- AWS Amplify
+
+## Project Structure
+
+```
+portfolio/
+├── app/                    # Next.js app directory
+│   ├── layout.tsx         # Root layout with providers
+│   ├── page.tsx           # Main page component
+│   └── globals.css        # Global styles
+├── components/
+│   ├── labs/              # Interactive lab components
+│   ├── providers/         # Context providers (Theme, Persona)
+│   ├── sections/          # Main page sections
+│   └── ui/                # Reusable UI components
+├── hooks/                 # Custom React hooks
+├── lib/                   # Utility functions and data
+├── public/                # Static assets
+├── types/                 # TypeScript type definitions
+└── ...config files
+```
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+Note: 3D features require WebGL support.
+
+## Performance
+
+- Optimized images with Next.js Image component
+- Code splitting and lazy loading
+- Dynamic imports for heavy components (R3F, Chart.js)
+- Reduced motion support for accessibility
+
+## License
+
+MIT License - feel free to use this template for your own portfolio!
+
+## Contact
+
+- GitHub: [@Omkarchaithanya](https://github.com/Omkarchaithanya)
+- LinkedIn: [omkar-chaithanya-r](https://www.linkedin.com/in/omkar-chaithanya-r/)
+
+---
+
+Built with ❤️ using Next.js 14
+
