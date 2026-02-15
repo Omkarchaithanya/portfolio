@@ -2,6 +2,14 @@
 
 A cutting-edge portfolio website showcasing AI/ML expertise, full-stack development skills, and research work. Built with Next.js 14, TypeScript, Tailwind CSS, Framer Motion, and React Three Fiber.
 
+## ⚠️ Important Note
+
+This portfolio uses client-side rendering for interactive features. When running in development mode, you may see hydration warnings. These are expected and will not appear in production builds. The application is fully functional despite these warnings.
+
+For production deployment, consider using:
+- Static export: `npm run build && npm run export`
+- Or deploy directly to Vercel which handles client-side apps optimally
+
 ## Features
 
 ### Core Features
